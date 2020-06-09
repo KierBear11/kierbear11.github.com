@@ -1,0 +1,126 @@
+.hide {
+	display: none;
+}
+
+.fa {
+	cursor: pointer;
+}
+
+.list-group-item {
+	padding: 0 !important;
+}
+
+.itemText {
+	margin: 10px;
+}
+
+.itemIcons {
+	padding-top: 10px;
+}
+
+.editIcon {
+	position: absolute;
+	left: 10px;
+	top: 15px;
+	color: grey;
+}
+
+.closeIcon {
+	position: absolute;
+	top: 0px;
+	left: 35px;
+	padding: 5px;
+	color: rgb(70, 70, 70);
+}
+
+.listEditInput {
+	width: 100%;
+	height: 35px;
+	border: 1px solid rgb(90, 200, 250);
+	padding-left: 10px;
+}
+
+.colorNav {
+	background-color: #FAFAFA;
+}
+
+.navbarItem {
+	cursor: pointer;
+	font-size: 0.9em;
+}
+
+#listFooter {
+	margin-top: 5px;
+}
+
+#title {
+	user-select: none;
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	font-size: 2em;
+}
+
+#elements {
+	position: relative;
+}
+
+#contentContainer {
+	float: none;
+	margin: 0 auto;
+	margin-bottom: 300px;
+}
+
+#closeIntroPanel, #closeInfoPanel {
+	float: right;
+	padding: 5px;
+}
+
+#inputList {
+	border: 0px;
+	box-shadow: none;
+	width: 100%;
+	padding-left: 30px;
+	height: 35px;
+	z-index: 1;
+	position: relative;
+	background: rgba(0,0,0,0);
+}
+
+#plusIcon {
+	position: absolute;
+	top: 32.5%;
+	left: 8px;
+	color: rgb(76, 217, 100);
+}
+
+#spinner {
+	color: rgb(200, 200, 200);
+}
+
+#spinnerContainer {
+	width: 60px;
+	margin: 0 auto;
+	margin-top: 50px;
+}
+
+#mainIconImage {
+	display: inline-block;
+	max-width: 80%;
+	width: 400px;
+	margin-top: 20px;
+	margin-left: 10px;
+	margin-bottom: -10px;
+}
+
+#idField {
+	text-transform: uppercase;
+}
+
+#loginPanel {
+	float: none;
+	margin: 0 auto;
+}
+
+td, table {
+	border: 1px solid black;
+}

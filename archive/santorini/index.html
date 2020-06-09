@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Santorini Board Game</title>
+	<script type='application/javascript' src="index.js"></script>
+	<script src="https://cdn.firebase.com/js/client/2.4.2/firebase.js"></script>
+	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=yes">
+	<meta name="description" content="Online multiplayer version of the Santorini board game">
+	<meta name="author" content="Kieran Freitag">
+	<meta property="og:image" content="http://i.imgur.com/jXlawda.png" />
+	<link rel="stylesheet" type="text/css" href="index.css">
+	<link rel="icon" href="favicon.ico" type="image/x-icon"/>
+	<link rel="shortcut icon" href="favicon.ico" type="image/x-icon"/>
+
+	<script src="lib/sweetalert.min.js"></script>
+	<link rel="stylesheet" type="text/css" href="lib/sweetalert.css">
+</head>
+<body onload="documentLoad()" onunload="documentUnload()">
+<div id="wrapper">
+	<img src="logo.png" style="display: none" />
+	<div id="header">
+		<h1>Santorini Board Game</h1>
+		<hr>
+	</div>
+	<div class="mainPanel">
+		<div id="initPanel" class="initPanel">
+			<div class="miniPanel">
+				<h2 class="panelElements panelTitles miniItems" style="left: 10px">Start a new game:</h2>
+				<input type="button" value="New Game" id="newButton" class="miniItems" onClick="newGame()" style="left: 220px">
+			</div>
+			<p class="panelElements" id="or">OR</p>
+			<div class="miniPanel">
+				<h2 class="panelElements panelTitles miniItems" style="left: 10px">Join a game:</h2>
+				<input type="text" placeholder="Enter Key" id="keyInput" maxlength="4" class="miniItems" onkeypress="joinGame(event)" style="left: 165px" />
+				<p style="left: 250px; bottom: -10px; position: absolute">OR</p>
+				<input type="button" value="Search Random" id="randomButton" class="miniItems" onClick="searchRandomGame()" style="left: 280px" />
+			</div>
+		</div>
+		<div id="randomPanel">
+			<h2 class="panelElements panelTitles">List of open games:</h2>
+			<hr />
+			<table id="randomTable"></table>
+			<input type="button" value="Back" id="backButton" onClick="backToInitPanel()" />
+		</div>
+		<table id="grid"></table>
+	</div>
+	<div class="mainPanel">
+		<div id="instructionPanel">
+			<h3 id="instructions" class="panelElements panelTitles" onclick="instructionPopup()">Open Instructions</h3>
+		</div>
+		<p id="gameLog" class="log"></p>
+		<input type="text" id="textInput" onkeypress="sendMessage(event)" 
+			placeholder="Send a message here" maxlength="32"></input>
+		<p id="messageLog" class="log"></p>
+	</div>
+</div>
+<!--
+<ul>
+	<li>Both players begin by placing their 2 builders on the grid.  Players alternate in doing so.</li>
+	<li>Starting with player 1, the players alternate turns.  A turn has two parts: <i>moving and building</i>.</li>
+	<li>Each turn a player <strong style="color: red">moves</strong> one of their men, to an unoccupied neighbouring tile.</li>
+	<li>The player then <strong style="color: green">builds</strong> a tile on an unoccupied neigbouring tile.  The highest level is three tiles above the platform.  A tile built on this third level is immediately replaced by a cap.  Players cannot move on top of a cap and a tile cannot be placed on top of one.</li>
+	<li>When moving, players can jump down any number of levels, but can <b>climb up</b> at most one level.  A player who climbs to the third level <strong>wins</strong>! </li>
+</ul>
+-->
+<script>
+function instructionPopup(){
+	swal({
+		title: "Instructions for Santorini",
+		html: "<ul id='instructionsText'><li>Both players begin by placing their 2 builders on the grid.  Players alternate in doing so.</li><li>Starting with player 1, the players alternate turns.  A turn has two parts: <i>moving and building</i>.</li><li>Each turn a player <strong style='color: red'>moves</strong> one of their men, to an unoccupied neighbouring tile.</li><li>The player then <strong style='color: green'>builds</strong> a tile on an unoccupied neigbouring tile.  The highest level is three tiles above the platform.  A tile built on this third level is immediately replaced by a cap.  Players cannot move on top of a cap and a tile cannot be placed on top of one.</li><li>When moving, players can jump down any number of levels, but can <b>climb up</b> at most one level.  A player who climbs to the third level <strong>wins</strong>! </li></ul>"
+	});
+}
+</script>
+</body>
+</html>

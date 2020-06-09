@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+    <meta name="handheldfriendly"/>
+    <meta name="description" content="The easiest way to craete lists and share them with anyone you know!">
+    <meta name="author" content="Kieran Freitag">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+	<meta name="mobile-web-app-capable" content="yes">
+	<meta name="apple-mobile-web-app-status-bar-style" content="default">
+
+    <title>Simple List</title>
+
+	<link rel="stylesheet" href="index.css">
+
+	<!--link rel="shortcut icon" href="/favicon.ico">
+	<link rel="icon" sizes="16x16 32x32 64x64" href="/favicon.ico">
+	<link rel="icon" type="image/png" sizes="196x196" href="/favicon-192.png">
+	<link rel="icon" type="image/png" sizes="160x160" href="/favicon-160.png">
+	<link rel="icon" type="image/png" sizes="96x96" href="/favicon-96.png">
+	<link rel="icon" type="image/png" sizes="64x64" href="/favicon-64.png">
+	<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
+	<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16.png">
+	<link rel="apple-touch-icon" href="/favicon-57.png">
+	<link rel="apple-touch-icon" sizes="114x114" href="/apple-touch-icon-114x114.png">
+	<link rel="apple-touch-icon" sizes="72x72" href="/apple-touch-icon-72x72.png">
+	<link rel="apple-touch-icon" sizes="144x144" href="/apple-touch-icon-144x144.png">
+	<link rel="apple-touch-icon" sizes="60x60" href="/apple-touch-icon-60x60.png">
+	<link rel="apple-touch-icon" sizes="120x120" href="/apple-touch-icon-120x120.png">
+	<link rel="apple-touch-icon" sizes="76x76" href="/apple-touch-icon-76x76.png">
+	<link rel="apple-touch-icon" sizes="152x152" href="/apple-touch-icon-152x152.png">
+	<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+	<meta name="msapplication-TileColor" content="#FFFFFF">
+	<meta name="msapplication-TileImage" content="/apple-touch-icon-144.png">
+	<meta name="msapplication-config" content="/browserconfig.xml"-->
+	<link rel="apple-touch-icon" href="http://i.imgur.com/KLAY9Vy.png">
+
+	<link rel="stylesheet" href="res/font-awesome/css/font-awesome.min.css">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+	<script src="https://www.gstatic.com/firebasejs/3.6.1/firebase-app.js"></script>
+	<script src="https://www.gstatic.com/firebasejs/3.6.1/firebase-auth.js"></script>
+	<script src="https://www.gstatic.com/firebasejs/3.6.1/firebase-database.js"></script>
+
+	<script src="index.js"></script>
+</head>
+<body>
+<div class="container">
+	<div id="loadScreen">
+		<div id="spinnerContainer">
+			<span class="fa fa-spinner fa-pulse fa-3x fa-fw" id="spinner"></span>
+			<span class="sr-only">Loading...</span>
+		</div>
+	</div>
+	<div id="mainScreen" class="hide">
+		<div class="row">
+			<img src="banner.png" class="img-responsive" alt="Simple List" id="mainIconImage">
+			<hr>
+		</div>
+		<div class="row">
+			<div class="col-sm-8 col-md-6" id="loginPanel">
+				<form>
+					<div class="form-group">
+						<label for="idField">Enter ID:</label>
+						<div class="input-group">
+							<input type="text" class="form-control" id="idField" placeholder="ABCDABCDAB" maxlength="10">
+							<div class="input-group-btn">
+								<button class="btn btn-info" type="button" id="enterInput">Join</button>
+								<button class="btn btn-success" type="button" id="newInput">New List</button>
+							</div>
+						</div>
+					</div>
+				</form>
+			</div>
+		</div>
+
+		<nav class="navbar navbar-default navbar-fixed-bottom">
+			<div class="container">
+				<p class="navbar-text">&copy; 2016 Kieran Freitag. All Rights Reserved.</p>
+			</div>
+		</nav>
+
+		<!--Enter ID:<br />
+		<input type="text" id="idField" />
+		<input type="button" value="Enter" id="enterInput" />
+		<br />
+		<input type="button" value="New List" id="newInput" /-->
+	</div>
+	<div id="listScreen" class="hide">
+		<nav class="navbar navbar-default navbar-fixed-top navMainColor">
+			<div class="container">
+				<div class="navbar-header">
+					<button type="button" class="navbar-toggle collapsed navMainColor" data-toggle="collapse" data-target="#navbar-collapse-id">
+						<span class="fa fa-bars fa-lg navWhiteColor"></span>
+					</button>
+					<span class="navbar-brand navWhiteColor" id="title">New List</span>
+					<div class="form-group navbar-brand hide">
+						<input type="text" class="form-control" maxlength="16" id="titleInput">
+					</div>
+				</div>
+				<div class="collapse navbar-collapse navMainColor" id="navbar-collapse-id">
+					<ul class="nav navbar-nav">
+						<li class="navbarItem" id="editTitleButton">
+							<a data-toggle="collapse" data-target="#navbar-collapse-id" class="navWhiteColor"><i class="fa fa-pencil fa-fw"></i> Edit Title</a>
+						</li>
+						<li class="navbarItem dropdown">
+							<a class="dropdown-toggle navMainColor navWhiteColor" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><i class="fa fa-paint-brush fa-fw"></i> Change Colour <span class="caret"></span></a>
+							<ul class="dropdown-menu">
+								<li class="colorNav"><a data-toggle="collapse" data-target="#navbar-collapse-id" onclick="listEvents.colorChange(-1)"><span class="fa fa-check-square" style="color: grey"></span> No Colour</a></li>
+								<li class="colorNav"><a data-toggle="collapse" data-target="#navbar-collapse-id" onclick="listEvents.colorChange(0)"><span class="fa fa-check-square" style="color: rgb(255, 59, 48)"></span> Red</a></li>
+								<li class="colorNav"><a data-toggle="collapse" data-target="#navbar-collapse-id" onclick="listEvents.colorChange(1)"><span class="fa fa-check-square" style="color: rgb(255, 149, 0)"></span> Orange</a></li>
+								<li class="colorNav"><a data-toggle="collapse" data-target="#navbar-collapse-id" onclick="listEvents.colorChange(2)"><span class="fa fa-check-square" style="color: rgb(255, 204, 0)"></span> Yellow</a></li>
+								<li class="colorNav"><a data-toggle="collapse" data-target="#navbar-collapse-id" onclick="listEvents.colorChange(3)"><span class="fa fa-check-square" style="color: rgb(76, 217, 100)"></span> Green</a></li>
+								<li class="colorNav"><a data-toggle="collapse" data-target="#navbar-collapse-id" onclick="listEvents.colorChange(4)"><span class="fa fa-check-square" style="color: rgb(90, 200, 250)"></span> Teal Blue</a></li>
+								<li class="colorNav"><a data-toggle="collapse" data-target="#navbar-collapse-id" onclick="listEvents.colorChange(5)"><span class="fa fa-check-square" style="color: rgb(0, 122, 255)"></span> Blue</a></li>
+								<li class="colorNav"><a data-toggle="collapse" data-target="#navbar-collapse-id" onclick="listEvents.colorChange(6)"><span class="fa fa-check-square" style="color: rgb(88, 86, 214)"></span> Purple</a></li>
+								<li class="colorNav"><a data-toggle="collapse" data-target="#navbar-collapse-id" onclick="listEvents.colorChange(7)"><span class="fa fa-check-square" style="color: rgb(255, 45, 85)"></span> Pink</a></li>
+							</ul>
+						</li>
+						<li class="navbarItem" id="showInfoButton">
+							<a data-toggle="collapse" data-target="#navbar-collapse-id" class="navWhiteColor"><i class="fa fa-info fa-fw"></i> Show List Info</a>
+						</li>
+						<li class="navbarItem" id="showIntroButton">
+							<a data-toggle="collapse" data-target="#navbar-collapse-id" class="navWhiteColor"><i class="fa fa-bookmark fa-fw"></i> Show Intro</a>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</nav>
+
+		<div style="height: 70px"></div>
+
+		<div class="panel panel-success hide" id="introPanel">
+			<div class="panel-heading">
+				<h2 class="panel-title" style="display: inline">Hey, looks like you're new!</h2>
+				<span class="fa fa-times-circle fa-lg" id="closeIntroPanel"></span>
+			</div>
+			<div class="panel-body">
+				<p><i>SimpleList</i> is the easiest way to create lists and share them with anyone you know.</p>
+				<p>Here's a few pointers to help you get started:</p>
+				<ul>
+					<li>Click <i class="fa fa-plus-square-o fa-lg fa-fw" style="color: rgb(76, 217, 100)"></i> to <mark>add</mark> a new item to your list</li>
+					<li>Click <i class="fa fa-edit fa-lg fa-fw" style="color: grey"></i> to <mark>edit</mark> an item in your list</li>
+					<li>Click <i class="fa fa-times fa-lg fa-fw" style="color: rgb(70, 70, 70)"></i> to <mark>remove</mark> an item from your list</li>
+				</ul>
+				<hr />
+				<p>Bookmark or save this webpage to your homescreen so you don't have to enter the ID each time!</p>
+				<p>Send this list to others by sharing the <strong>List ID</strong> found by clicking the <mark style="white-space: nowrap"><i class="fa fa-info"></i> Show List Info</mark> button in the menu panel.</p>
+			</div>
+		</div>
+
+		<div class="panel panel-info hide" id="infoPanel">
+			<div class="panel-heading">
+				<h2 class="panel-title" style="display: inline">List Information</h2>
+				<span class="fa fa-times-circle fa-lg" id="closeInfoPanel"></span>
+			</div>
+			<div class="panel-body">
+				<p>Sharable ID: <code id="idDisplay">AAAAAAAAAA</code></p>
+			</div>
+		</div>
+
+		<div class="row"><div class="col-sm-10 col-md-8 col-lg-7" id="contentContainer">
+		<ul class="list-group" id="elements">
+			<div id="listItems">
+				<!--li class="list-group-item">
+					<div class="row">
+						<div class="col-xs-9">
+							<p class="itemText">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent semper varius magna, eget mollis justo lacinia a. Vestibulum sollicitudin tempus libero metus.</p>
+							<input type="text" class="listEditInput hide">
+						</div>
+						<div class="col-xs-2 col-sm-offset-1 itemIcons">
+							<span class="fa fa-edit fa-lg editIcon"></span>
+							<span class="fa fa-times fa-2x closeIcon"></span>
+						</div>
+					</div>
+				</li-->
+			</div>
+			<div id="listFooter">
+				<li class="list-group-item">
+					<span class="fa fa-plus-square-o fa-lg" id="plusIcon"></span>
+					<input type="text" id="inputList" maxlength="160">
+				</li>
+			</div>
+		</ul>
+		</div></div>
+	</div>
+</div>
+</body>
+</html>

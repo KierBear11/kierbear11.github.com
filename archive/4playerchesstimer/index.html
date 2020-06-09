@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>4 Player Chess Timer</title>
+	<script type='application/javascript' src="index.js"></script>
+	<script type='application/javascript' src='fastclick.js'></script>
+	<script type='application/javascript'>
+		if ('addEventListener' in document) {
+   			document.addEventListener('DOMContentLoaded', function() {
+    			FastClick.attach(document.body);
+	   		}, false);
+		}
+	</script>
+	<link rel="stylesheet" type="text/css" href="index.css">
+</head>
+<body>
+	<div id="wrapper">
+	<h1>4 Player Chess Timer</h1>
+		<hr>
+	<p class="inline" id="descMaxTime">Enter Max Time:</p>
+	<input type="text" class="inline" id="maxTimeInput"></input>
+	<button onClick="maxTime()" class="inline" id="maxButton">Enter Time</button>
+	<p class="inline" id="sepLine">||</p>
+	<button onClick="startTimer()" class="inline" id="bigButton">Start Timer</button>
+		<hr id="sepLine2">
+	<table>
+		<tr>
+			<td><p class="playerHeading">Player 1:</p></td>
+			<td><span class="time" id="p0">00:00</span></td>
+			<td><button class="timeButton" onClick="stopTime(0)" id="p0button">Stop Time</button></td>
+		</tr>
+		<tr>
+			<td><p class="playerHeading">Player 2:</p></td>
+			<td><span class="time" id="p1">00:00</span></td>	
+			<td><button class="timeButton" onClick="stopTime(1)" id="p1button">Stop Time</button></td>
+		</tr>
+		<tr>
+			<td><p class="playerHeading">Player 3:</p></td>
+			<td><span class="time" id="p2">00:00</span></td>
+			<td><button class="timeButton" onClick="stopTime(2)" id="p2button">Stop Time</button></td>
+		</tr>
+		<tr>
+			<td><p class="playerHeading">Player 4:</p></td>
+			<td><span class="time" id="p3">00:00</span></td>
+			<td><button class="timeButton" onClick="stopTime(3)" id="p3button">Stop Time</button></td>
+		</tr>
+	</table>
+	</div>
+</body>
+</html>

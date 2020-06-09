@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Castle Risk Rules</title>
+
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+	<script src="index.js"></script>
+
+	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+	<meta name="description" content="">
+	<meta name="author" content="Kieran Freitag">
+
+	<link rel="stylesheet" type="text/css" href="index.css">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+</head>
+<body onload="documentLoad()" data-spy="scroll" data-target="#navHolder">
+<div class="container">
+	<h1>Castle Risk Rules<br />
+	<small>A Game of Daring Strategy and Conquest</small>
+	</h1><hr style="margin: 0">
+	<div class="col-sm-9" id="main" role="main">
+		<h3 id="Equipment">Equipment</h3><hr class="underline"><div class="holder">
+			<ul class="">
+				<li>A game board</li>
+				<li>5 dice: 2 red, 3 white</li>
+				<li>6 castles</li>
+				<li>6 empire banners</li>
+				<li>6 sets of armies: each a different colour</li>
+				<li>A deck of 48 cards:<ul class="list-inline">
+					<li>8 Marshalls</li>
+					<li>7 Diplomats</li>
+					<li>8 Generals</li>
+					<li>6 Admirals</li>
+					<li>7 Spies</li>
+					<li>12 Reinforcements</li>
+				</ul></li>
+			</ul>
+			<dl class="dl-horizontal">
+				<dt>Empire Banners</dt>
+				<dd>Carefully twist each banner off of the plastic runner.</dd>
+			</dl>
+			<dl class="dl-horizontal">
+				<dt>Armies</dt>
+				<dd>There are 6 sets of armies. Each set contains single-army pieces and 10-army pieces. When choosing an army colour, be sure to take those armies of the same colour group.</dd>
+			</dl>
+			<div class="col-sm-8 col-sm-offset-4 col-md-9 col-md-offset-3 col-lg-10 col-lg-offset-2" style="text-align: center">
+			<div id="pieceImages">
+				<div class="center imgDiv">
+					<img src="assets/piece_3star.png" class="center" style="height: 32px">
+					<h5 class="">10-army piece</h5>
+				</div>
+				<div style="width: 20px; display: inline-block"></div>
+				<div style="width: 20px; display: inline-block" class="hidden-xs hidden-sm"></div>
+				<div style="width: 20px; display: inline-block" class="hidden-xs hidden-sm hidden-md"></div>
+				<div class="center imgDiv">
+					<img src="assets/piece_5star.png" class="center" style="height: 40px">
+					<h5 class="">Single-army pieces</h5>
+				</div>
+			</div>
+			</div>
+			<dl class="dl-horizontal">
+				<dt style="font-weight: normal"><em>Example:</em></dt>
+				<dd>Red single-army pieces and pink 10-army pieces belong together.</dd>
+			</dl>
+		</div><h3 id="Objective">Objective</h3><hr class="underline"><div class="holder">
+			<p class="lead" style="margin-left: 30px">To capture each enemy castle on the game board, thereby being the last player to remain in the game.</p>
+		</div><h3 id="TheGameBoard">The Game Board</h3><hr class="underline"><div class="holder">
+			<dl class="dl-horizontal">
+				<dt>Empires</dt>
+				<dd>As you can see, the game board is a map of 6 European empires. They are the: British, French, Ottoman, German, Russian, and Austrian empires.</dd>
+			</dl>
+			<dl class="dl-horizontal">
+				<dt>Territories</dt>
+				<dd>Each colour-coded empire is divided into several territories marked by solid-coloured borders.</dd>
+			</dl>
+			<dl class="dl-horizontal">
+				<dt style="font-weight: normal"><em>Example:</em></dt>
+				<dd>The territories that comprise the British Empire are: Yorkshire, Ireland, Wales, London, and Scotland.</dd>
+			</dl>
+			<dl class="dl-horizontal">
+				<dt>Independant Territories</dt>
+				<dd>There are also 11 colour-coded Independent territories. These are, as their name states, completely independent and do not make up an empire. The Independent territories are: Norway, Madrid, Switzerland, Sweden, Portugal, Venice, Finland, Barcelona, Rome, Denmark, and Naples.</dd>
+			</dl>
+			<dl class="dl-horizontal">
+				<dt>Dotted Lines</dt>
+				<dd>You will notice that there are certain territories separated by water, but connected by dotted lines. The dotted lines indicate that army movement between these territories is possible without the use of the Admiral ship.</dd>
+			</dl>
+			<dl class="dl-horizontal">
+				<dt>The Black Sea</dt>
+				<dd>Note that the Black Sea is the only major body of water on the board that's completely land-locked. Therefore, when using the Admiral's ship on the Black Sea, you can only carry armies to and from territories that border directly on it. You cannot use the Admiral's ship to carry armies from a territory on the Black Sea to a territory that borders on another body of water, or vice versa.</dd>
+			</dl>
+
+		</div><h3 id="Setup">Setup</h3><hr class="underline"><div class="holder">
+			<ol>
+				<li>
+				<p>Get a pencil and a sheet of paper.</p>
+				</li>
+				<li>
+				<p>Choose an army colour and separate out the appropriate number of starting armies, using single-army pieces: 2 players: 40 each. 3 players: 35 each. 4 players: 30 each. 5 players: 25 each. 6 players: 20 each.</p>
+				</li>
+				<li>
+				<p>Roll a die to see who will place armies first. High roller draws an empire's banner, sight unseen, inserts it into a castle, and places that castle on any territory within the empire represented by the initial on the banner. Then, he or she places 1 army piece next to the castle.</p>
+				</li>
+				<li>
+				<p>THIS IS THE CASTLE THAT PLAYER MUST DEFEND. Starting from that player's <em>left</em>, everybody, in turn, draws an empire banner, places a castle and 1 army in the same manner.
+				<br /><em>HINT</em>: Its best to place your castle next to the sea.</p>
+				</li>
+				<li>
+				<p>Starting with the same first player, everybody, in turn, places a single-army piece on any unoccupied territory in any empire. Continue taking turns until each territory is occupied by a single army.
+				<br /><em>HINT</em>: Occupy an entire empire if you can.</p>
+				<p>Now, each player, in turn, places 5 armies at the same time, divided up in anyway, on any territories that he or she already occupies. Do so until all starting armies have been placed.</p>
+				<em>HINT</em>: Strongly fortify your castle with armies.
+				<ul>
+					<li>There is no limit to the number of armies you can place on any one territory.</li>
+					<li><p>At any time, substitute 10 single-army pieces for one 10-army piece on a territory or vice versa.</p></li>
+				</ul>
+				</li>
+				<li>
+				<p>In secret, choose a territory where you will place your "Hidden Armies" (see <a href="#HiddenArmies">Hidden Armies</a>). It may be any territory except one occupied by a castle. Write down the name on a piece of paper and slip it under the game board.</p>
+				</li>
+				<li> 
+				<p>Shuffle the cards and deal 3 <em>face down</em> to each player (who looks at them in secret). Place the remaining cards facedown to form a draw pile. Again, roll the die to see who starts playing first. Play passes to the <em>left</em>.</p>
+				</li>
+			</ol>
+			<div class="borderPanel">
+				<dl>
+					<dt>BATTLE and ATTACK</dt>
+					<dd>Refer to the following definitions of the words, BATTLE and ATTACK to be sure players have a clear understanding of their meanings in this game:<ul>
+						<li>BATTLE: is a single "fight" between two enemy armies (one roll of the dice).</li>
+						<li>ATTACK: is made up of one or more battles.</li>
+					</ul></dd>
+				</dl>
+			</div>
+			<div class="borderPanel">
+				<dl>
+					<dt>PLAYING</dt>
+					<dd>On your turn, do the following in order:<ol>
+						<li>If you have less than 3 cards, bring your hand up to 3.</li>
+						<li>Draw 1 card.</li>
+						<li>Play cards if you wish. (Some cards will be played out of this order.)</li>
+						<li>Attack if you wish.</li>
+						<li>Collect spoils. This indicates the end of your turn.</li>
+					</ol></dd>
+				</dl>
+			</div>
+		</div><h3 id="TheCards">The Cards</h3><hr class="underline"><div class="holder">
+			<div class="card">
+				<dl>
+					<dt>Reinforcements.</dt>
+					<dd>Used to recruit additional armies to place in one or more of the territories you occupy.</dd>
+				</dl>
+				<div class="col-sm-2">
+					<img src="assets/card_reinforcements.png" class="cardImage" />
+				</div>
+				<div class="col-sm-10">
+					<ul>
+						<li>Play one or more before starting the FIRST attack of your turn. (You cannot play reinforcement cards on your turn once you've made your first attack.)</li>
+						<li>Place the card(s) under the numbered edge of the game board. one card to each number, in numerical order. The sum of the numbers above the cards you have just played is the number of armies you get. </li>
+					</ul>
+				</div>
+			</div>
+			<div class="card">
+				<dl>
+					<dt>Spy.</dt>
+					<dd>Used to look at a player's hand in order to eliminate a card from it, OR to defend against another Spy card.</dd>
+				</dl>
+				<div class="col-sm-2">
+					<img src="assets/card_spy.png" class="cardImage" />
+				</div>
+				<div class="col-sm-10">
+					<ul>
+						<li>Play one or more at any time during your turn.</li>
+						<li>Let everybody see the card you've chosen, then discard it face up. Then, discard your Spy card.</li>
+						<li>Can also be used defensively against an opponent's Spy card. Both Spy cards are discarded and no looking is allowed.</li>
+					</ul>
+				</div>
+			</div>
+			<div class="card">
+				<dl>
+					<dt>General.</dt>
+					<dd>Used offensively to add 1 point to your high die roll.</dd>
+				</dl>
+				<div class="col-sm-2">
+					<img src="assets/card_general.png" class="cardImage" />
+				</div>
+				<div class="col-sm-10">
+					<ul>
+						<li>Play at any time during an attack just before rolling the dice.</li>
+						<li>Once committed to an attack, you cannot withdraw the General.</li>
+						<li>If you attack again on that turn, you must continue to use the General. At the end of your turn, return the General to your hand, if he has survived.</li>
+						<li>Your high die roll, plus 1, must beat your opponent's high die roll to keep using the General. The General card is eliminated as soon as your opponent rolls a number higher than your high die roll, plus 1. You must discard the General card. Then, you can:<ul>
+							<li>Play another General card if you wish</li>
+							<li>Continue the attack without a General</li>
+							<li>End the attack</li>
+						</ul></li>
+					</ul>
+				</div>
+			</div>
+			<div class="card">
+				<dl>
+					<dt>Admiral.</dt>
+					<dd>Used to move your armies via the Admiral's ship from a territory on the sea to attack an enemy's territory on the sea.</dd>
+				</dl>
+				<div class="col-sm-2">
+					<img src="assets/card_admiral.png" class="cardImage" />
+				</div>
+				<div class="col-sm-10">
+					<ul>
+						<li>Play at any time during your turn to attack only.</li>
+						<li>NEVER USE SIMPLY TO RELOCATE ARMIES.</li>
+						<li>Once committed to the attack, you cannot withdraw the Admiral. You must continue the attack to the end.</li>
+						<li>If you lose all the armies in the ship, you lose the attack and the Admiral card. Discard it.</li>
+						<li>If you win the attack, move all your armies from the ship into the defeated territory, and return the Admiral card to your hand.</li>
+						<li>You may use an Admiral card as many times as you wish on a turn as long as you keep winning each attack.</li>
+					</ul>
+				</div>
+			</div>
+			<div class="card">
+				<dl>
+					<dt>Marshall.</dt>
+					<dd>Used defensively to add 1 point to your high die roll.</dd>
+				</dl>
+				<div class="col-sm-2">
+					<img src="assets/card_marshall.png" class="cardImage" />
+				</div>
+				<div class="col-sm-10">
+					<ul>
+						<li>Play when you're attacked by another player.</li>
+						<li>Once committed to the attack, you cannot withdraw the Marshall.</li>
+						<li>If you lose the high die roll (plus 1), discard the Marshall card.</li>
+						<li>If the Marshall survives the attack, return it to your hand.</li>
+					</ul>
+				</div>
+			</div>
+			<div class="card">
+				<dl>
+					<dt>Diplomat.</dt>
+					<dd>Used to force a truce with another player.</dd>
+				</dl>
+				<div class="col-sm-2">
+					<img src="assets/card_diplomat.png" class="cardImage" />
+				</div>
+				<div class="col-sm-10">
+					<ul>
+						<li>Play a Diplomat on one or more players before starting the FIRST attack of your turn. (You cannot play a Diplomat card on your turn once you've made your first attack.)</li>
+						<li>You cannot attack the player(s) with whom you have a truce on this turn, nor can that player attack you on his or her next turn. THE TRUCE IS IN EFFECT FOR ONE COMPLETE ROUND OF PLAY.</li>
+						<li>Discard the Diplomat at the end of the round.</li>
+						<li>Do not use Diplomats in a 2-player game. When the number of players in a game reaches 2, discard all the Diplomat cards from your hand and replace them by drawing new cards. Whenever you draw Diplomat cards from the draw pile, discard them and draw again.</li>
+					</ul>
+				</div>
+			</div>
+		</div><h3 id="TheAttack">The Attack</h3><hr class="underline"><div class="holder">
+			<p class="lead" style="margin-left: 30px; margin-bottom: 10px">An attack is one or more battles fought with the dice. The object is to capture a territory by defeating <em>all</em> the enemy armies on it.</p>
+			<ul>
+				<li>You may only attack from one of your territories to an adjacent (next to) enemy territory. (Territories connected by a dotted line are also considered adjacent.)</li>
+				<li>You must always have at least 2 armies in the territory from which you are attacking.</li>
+			</ul>
+			<dl style="margin-bottom: 10px">
+				<dt>Attacking.</dt>
+				<dd>Announce the territory you're attacking and the one you're attacking from.<ul>
+					<li>You, the attacker, may roll 1, 2, or 3 white dice for each battle, <em>but you must have at least 1 more army in your territory than the number of dice you roll</em>. The more dice you roll, the better your chances of winning&mdash;yet the more armies you stand to lose.</li>
+				</ul></dd>
+			</dl>
+			<div class="borderPanel" style="">
+				<dl style="margin: 0px">
+					<dt>EXCEPTION TO THIS RULE:</dt>
+					<dd>When you attack a castle, you can never use more than 2 dice.</dd>
+				</dl>
+			</div>
+			<ul>
+				<li>The defender may roll 1 or 2 red dice for each battle. To roll 2 dice, however, the defender must have at least 2 armies on the territory under attack. By rolling 2 dice, the defender has a better chance of winning&mdash;but also stands to lose more armies.</li>
+			</ul>
+			<div class="col-md-6"><dl>
+				<dt>Deciding the Battle.</dt>
+				<dd>Compare the highest die that each of you has rolled. (The high die roll.)<ul>
+					<li>If the attacker's die is higher, the defender removes 1 army.</li>
+					<li>If the defender's die is higher, the attacker removes 1 army.</li>
+					<li>A tie goes to the defender and the attacker removes 1 army.</li>
+					<li>If you both rolled more than 1 die, compare the next highest pair. (See example 2 and 3.)</li>
+					<li>Both attacker and defender can never lose more than 2 armies on a single roll.</li>
+					<li>The attacker may end the attack between any of the battles fought with the dice (except when using an Admiral).</li>
+				</ul></dd>
+			</dl></div>
+			<div class="col-md-6" style="height: 100%">
+				<img src="assets/dicerules.png" id="diceRulesImg">
+				<p style="margin-top: 10px"><strong>Note</strong>: <em>The attacker can never lose more than two armies on a single roll.</em></p>
+				<div class="visible-md-block BUGFIX" style="margin-bottom: 50px"></div>
+			</div>
+		</div><h3 id="HiddenArmies">Hidden Armies</h3><hr class="underline"><div class="holder">
+			<p>Used&mdash;only once&mdash;at any time during the game to defend the territory they occupy or to attack from that territory.</p>
+			<ul>
+				<li>You must occupy the territory before you bring them out. </li>
+				<li>Show the other players the paper with the territory name written on it.</li>
+				<li>Place on that territory the number of armies equal to the number above the last Reinforcement card played. (The longer hidden armies stay underground, the greater their number may be when you bring them out.)</li>
+			</ul>
+		</div><h3 id="Spoils">Spoils</h3><hr class="underline"><div class="holder">
+			<p>At the end of your turn, collect any spoils you're entitled to and distribute them in any way to territories you already occupy.</p>
+			<ul>
+				<li>4 armies for every empire you completely occupy.</li>
+				<li>6 armies for completely occupying the Independents (all 11 territories).</li>
+				<li>8 armies for every banner in your castle.</li>
+			</ul>
+		</div><h3 id="Winning">Winning</h3><hr class="underline"><div class="holder">
+			<p class="lead" style="margin-left: 30px">The player who captures all the enemy castles on the board and flies all the banners on his or her castle wins the game.</p>
+		</div><h3 id="StrategyHints">Strategy Hints</h3><hr class="underline"><div class="holder">
+			<p>Strategies vary from game to game. Here are some basic strategies which hold true for all or most games:</p>
+			<ul>
+				<li>Fortify your castle well! Remember-if you lose it, you're out of the game.</li>
+				<li>Placing your castle on a territory next to the sea allows you to use the armies that occupy it for naval invasions. (Chances are this territory has a large number of armies to work with. Remember: You can replace them at the end of your turn with spoils.)</li>
+				<li>To defeat a castle, odds are you need to attack with double the number of armies that are defending it, because you can only use 2 dice.</li>
+				<li>When attacking with your Admiral card, attack a weakly defended territory first. Then attack your main objective from there-by land. By doing so, you'll have a better chance of keeping your Admiral card&mdash;rather than losing it in a tougher battle from the sea.</li>
+				<li>When attacking another player's territory, consider stopping the attack when the player is down to 1 army&mdash;especially if that player's territory acts as a buffer between you and another threatening territory. Remember, the player cannot attack with 1 army, and cannot move armies through territories he or she occupies.</li>
+			</ul>
+		</div><h3 id="VerbalNegotiations">Verbal Negotiations</h3><hr class="underline"><div class="holder">
+			<p>Verbal negotiations are allowed, but are not enforceable. Negotiations must be conducted openly, never in secret. The terms of the negotiations may be carried out at any time.</p>
+			<p><em>Example</em>: card trading.</p>
+		</div>
+	</div>
+	<div class="col-sm-3 hidden-xs" role="complementary" id="navHolder">
+		<ul class="nav nav-pills nav-stacked" role="tablist" id="navList">
+			<li role="presentation" class=""><a href="#Equipment">Equipment</a></li>
+			<li role="presentation" class=""><a href="#Objective">Objective</a></li>
+			<li role="presentation" class=""><a href="#TheGameBoard">The Game Board</a></li>
+			<li role="presentation" class=""><a href="#Setup">Setup</a></li>
+			<li role="presentation" class=""><a href="#TheCards">The Cards</a></li>
+			<li role="presentation" class=""><a href="#TheAttack">The Attack</a></li>
+			<li role="presentation" class=""><a href="#HiddenArmies">Hidden Armies</a></li>
+			<li role="presentation" class=""><a href="#Spoils">Spoils</a></li>
+			<li role="presentation" class=""><a href="#Winning">Winning</a></li>
+			<li role="presentation" class=""><a href="#Strategy Hints">Strategy Hints</a></li>
+			<li role="presentation" class=""><a href="#VerbalNegotiations">Verbal Negotiations</a></li>
+		</ul>
+	</div>
+</div>
+</div>
+</body>
+</html>

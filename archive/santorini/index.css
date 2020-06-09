@@ -1,0 +1,227 @@
+p, h1, h2, h3, h4, button, input, #randomTable {
+	font-family: 'Georgia';
+	font-style: normal;
+	font-weight: normal;
+}
+button, input {
+	font-size: 0.75em;
+}
+#wrapper {
+	width: 405px;
+	margin-left: auto;
+    margin-right: auto;
+    -webkit-touch-callout: none;
+	-webkit-user-select: none;
+	-khtml-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+}
+@media (min-width: 860px) {
+	#wrapper {
+		width: 820px;
+	}
+}
+.mainPanel {
+	/*width: 95vw;*/
+	display: block;
+	vertical-align: top;
+}
+.miniPanel {
+	position: relative;
+	height: 35px;
+}
+.miniItems {
+	position: absolute;
+	bottom: 0;
+}
+@media (min-width: 860px) {
+	.mainPanel {
+		width: 405px;
+		display: inline-block;
+	}
+}
+#grid {
+	width: 400px;
+	height: 400px;
+	border: 1px solid darkgrey;
+	table-layout:fixed;
+	border-collapse: collapse;
+}
+#grid td {
+	background-color: #F2F3F4;
+	position: relative;
+	vertical-align: baseline;
+	width: 75px;
+	height: 75px;
+	border: 2px solid darkgrey;
+	box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+	overflow: hidden;
+    text-overflow: ellipsis;
+}
+#grid td:hover {
+	cursor: pointer;
+	background-color: lightgrey;
+}
+.gridImage {
+	position: absolute;
+	bottom: 0px;
+	left: 0px;
+	width: 75px;
+	height: 75px;
+}
+.log {
+	width: 398px;
+	height: 200px;
+	padding: 0px;
+	margin: 0px;
+	padding-top: 4px;
+	overflow: hidden;
+}
+#gameLog {
+	height: 175px;
+	border-left: 1px solid darkgrey;
+	border-right: 1px solid darkgrey;
+}
+#messageLog {
+	height: 250px;
+	border-left: 1px solid darkgrey;
+	border-right: 1px solid darkgrey;
+	border-bottom: 1px solid darkgrey;
+}
+#instructionPanel {
+	padding-top: 6px;
+	padding-bottom: 8px;
+	width: 398px;
+	background-color: white;
+	border: 1px solid darkgrey;
+}
+#textInput {
+	height: 25px;
+	width: 394px;
+}
+.initPanel {
+	display: block;
+	padding-top: 5px;
+	padding-bottom: 15px;
+	width: 398px;
+	background-color: lightgreen;
+	border: 1px solid darkgrey;
+	border-bottom-width: 0px;
+}
+.initPanelAFTER {
+	padding-top: 15px;
+	padding-bottom: 15px;
+	width: 398px;
+	background-color: white;
+	border: 1px solid darkgrey;
+	border-bottom-width: 0px;
+}
+.cellText {
+	padding: 3px;
+	color: black;
+}
+.panelElements {
+	margin: 0px;
+}
+.panelTitles {
+	margin-left: 10px;
+	display: inline;
+}
+#or {
+	margin-top: 5px;
+	text-align: center;
+}
+#newButton {
+	width: 125px;
+	height: 30px;
+	background-color: white;
+	border: 2px solid darkgrey;
+}
+#newButton:hover {
+	cursor: pointer;
+	background-color: lightgrey;
+}
+#keyInput {
+	width: 75px;
+	height: 25px;
+	background-color: white;
+	border: 2px solid darkgrey;
+}
+#randomButton {
+	width: 105px;
+	height: 31px;
+	background-color: white;
+	border: 2px solid darkgrey;
+}
+#randomButton:hover {
+	background-color: lightgrey;
+	cursor: pointer;
+}
+.joinButton {
+	padding-left: 10px;
+	width: 85px;
+	background-color: white;
+	border: 2px solid darkgrey !important;
+}
+.joinButton:hover {
+	cursor: pointer;
+	background-color: lightgrey;
+}
+#randomPanel {
+	display: none;
+	padding-top: 5px;
+	padding-bottom: 5px;
+	width: 398px;
+	background-color: lightgreen;
+	border: 1px solid darkgrey;
+	border-bottom-width: 0px;
+}
+#randomTable {
+	margin-left: 10px;
+	margin-bottom: 5px;
+}
+#randomTable th, td {
+    padding: 5px;
+    overflow: hidden;
+    max-width: 120px;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+#randomTable, #randomTable th, #randomTable td {
+	border: 1px solid black;
+	border-collapse: collapse;
+}
+#currentGameIndicator {
+	display: inline;
+}
+#turnIndicator {
+	display: inline;
+}
+#instructions {
+	color: grey;
+	text-decoration: underline;
+	cursor: pointer;
+	padding: 0px;
+	margin-left: 15px;
+}
+#instructionsText {
+
+}
+#instructionsText li {
+	text-align: left;
+	padding-bottom: 15px;
+}
+#backButton {
+	width: 125px;
+	height: 30px;
+	background-color: white;
+	border: 2px solid darkgrey;
+	margin-left: 137.5px;
+}
+#backButton:hover {
+	background-color: lightgrey;
+	cursor: pointer;
+}

@@ -1,0 +1,55 @@
+body {
+	padding-bottom: 60%;
+}
+
+h3 {
+	padding-top: 10px;
+}
+
+#navList {
+	position: relative;
+}
+
+#navList.sticky {
+	position: fixed;
+	top: 20px;
+}
+
+#pieceImages {
+	display: inline-block;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+#diceRulesImg {
+	width: 100%;
+}
+
+.center {
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.imgDiv {
+	display: inline-block;
+}
+
+.underline {
+	margin-top: 0px;
+}
+
+.borderPanel {
+	border: 1px solid black;
+	width: 90%;
+	padding: 8px;
+	margin-left: auto;
+	margin-right: auto;
+	margin-top: 15px;
+	margin-bottom: 15px;
+}
+
+.cardImage {
+	height: 100px;
+	float: right;
+}

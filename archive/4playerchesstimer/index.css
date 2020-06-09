@@ -1,0 +1,38 @@
+.inline{
+	display: inline;
+}
+
+.playerHeading{
+	font-size: 20px;
+	color: black;
+}
+
+.time{
+	color: gray;
+	font-size: 30px;
+	padding-left: 20px;
+	padding-right: 20px;
+}
+
+.timeButton{
+	font-size: 15px;
+	color: white;
+	background-color: lightgreen;
+	padding: 5px;
+}
+
+#bigButton{
+	font-size: 20px;
+	color: white;
+	background-color: maroon;
+
+}
+
+#wrapper{
+	margin-left: auto;
+    margin-right: auto;
+    max-width: 500px;
+    width: 90%;
+    background-color: #b0e0e6;
+    padding: 10px;
+}
