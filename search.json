@@ -1,7 +1,15 @@
 [
   
     {
-      "title"    : "Archived web pages from years gone by",
+      "title"    : "How I made my USB powered laptop LED strip backlight",
+      "category" : "",
+      "tags"     : "Programming and Builds",
+      "url"      : "/2020/06/08/led-strip-project/",
+      "date"     : "2020-06-08 06:52:00 -0400"
+    } ,
+  
+    {
+      "title"    : "Archived web pages",
       "category" : "",
       "tags"     : "Programming",
       "url"      : "/2020/06/08/old-websites/",
